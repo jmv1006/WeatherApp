@@ -1,7 +1,4 @@
-function component() {
-    const element = document.createElement('div');
-    element.innerHTML = 'Test';
-    return element;
-  }
-  
-  document.body.appendChild(component());
+import './style.css';
+import {fetchApi} from './modules/apiFetch.js';
+
+fetchApi();
