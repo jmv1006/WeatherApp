@@ -12,20 +12,31 @@ async function fetchApi() {
 function processData(weatherData) {
     console.log(weatherData);
     let temp = weatherData.main.temp;
-    let description = weatherData.weather[0].main;
+    let main = weatherData.weather[0].main;
+    let description = weatherData.weather[0].description;
     let high = weatherData.main.temp_max;
     let low = weatherData.main.temp_min;
+    let feelsLike = weatherData.main.feels_like;
+    let humidity = weatherData.main.humidity;
+    let windSpeed = weatherData.wind.speed;
+    let pressure = weatherData.main.pressure;
+
 
     class currentWeather {
-        constructor(city, temp, description, high, low) {
+        constructor(city, temp, main, description, high, low, feelsLike, humidity, windSpeed, pressure) {
             this.city = city;
             this.temp = temp;
+            this.main = main;
             this.description = description;
             this.high = high;
             this.low = low;
+            this.feelsLike = feelsLike;
+            this.humidity = humidity;
+            this.windSpeed = windSpeed;
+            this.pressure = pressure;
         };
     };
-    let newWeather = new currentWeather(city, temp, description, high, low);
+    let newWeather = new currentWeather(city, temp, main, description, high, low, feelsLike, humidity, windSpeed, pressure);
     importedData(newWeather);
 }
 
