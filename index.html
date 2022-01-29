@@ -2,9 +2,35 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>Getting Started</title>
+    <title>Weather App</title>
   </head>
   <body>
+    <div id='header'>
+      <div id='title'>Weather App</div>
+      <div id='searchContainer'>
+        <input type="text" id='searchBar' placeholder="City...">
+        <button type="submit" id='searchBtn'><i class="fa-search" id='searchIcon'></i></button>
+      </div>
+    </div>
+    <div id='mainContent'>
+      <div id='leftSide'>
+        <div id='upperContainer'>
+          <div id='cityName'>Los Angeles</div>
+        <div id='iconAndtemp'>
+          <div id='icon'><i class="wi wi-day-sunny"></i></div>
+          <div id='temp'>74</div>
+        </div>
+        </div>
+        <div id='highAndLow'>
+          <div id='high'>High: 81</div>
+          <div id='low'>Low: 54</div>
+        </div>
+        <div id='description'>Cloudy with a chance of rain</div>
+      </div>
+      <div id='rightSide'>
+        Right
+      </div>
+    </div>
     <script src="main.js"></script>
   </body>
 </html>
