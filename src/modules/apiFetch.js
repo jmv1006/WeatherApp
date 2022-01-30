@@ -33,6 +33,13 @@ function processData(weatherData) {
     let pressure = weatherData.main.pressure;
     let timeZone = weatherData.timezone;
 
+    let date = new Date();
+    let localTime = date.getTime()
+    let localOffset = date.getTimezoneOffset() * 60000
+    let utc = localTime + localOffset  
+    let time = utc + (1000 * timeZone);
+    let nd = new Date(time);
+    let currentHour = nd.getHours();
 
     let convertedtemp;
     let convertedHigh;
@@ -53,7 +60,7 @@ function processData(weatherData) {
 
 
     class currentWeather {
-        constructor(city, temp, main, description, id, high, low, feelsLike, humidity, windSpeed, pressure) {
+        constructor(city, temp, main, description, id, high, low, feelsLike, humidity, windSpeed, pressure, time) {
             this.city = city;
             this.temp = temp;
             this.main = main;
@@ -65,9 +72,10 @@ function processData(weatherData) {
             this.humidity = humidity;
             this.windSpeed = windSpeed;
             this.pressure = pressure;
+            this.time = time;
         };
     };
-    let newWeather = new currentWeather(city, convertedtemp, main, description, owmId, convertedHigh, convertedLow, convertedFeels, humidity, windSpeed, pressure);
+    let newWeather = new currentWeather(city, convertedtemp, main, description, owmId, convertedHigh, convertedLow, convertedFeels, humidity, windSpeed, pressure, currentHour);
     importedData(newWeather);
 }
 

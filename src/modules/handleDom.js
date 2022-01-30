@@ -9,7 +9,25 @@ function importedData(data) {
     document.getElementById('high').innerText = `High: ${data.high}°F`;
     document.getElementById('low').innerText = `Low: ${data.low}°F`;
     document.getElementById('description').innerText = data.description;
-    document.getElementById('iconCont').innerHTML = `<i class="wi wi-owm-day-${data.id}" id="icon"></i>`;
+
+    if (data.time > 18 || data.time < 6) {
+        displayIcon('night');
+    } else {
+        displayIcon('day');
+    };
+
+    function displayIcon(time) {
+        switch(time) {
+            case('day'):
+                document.getElementById('iconCont').innerHTML = `<i class="wi wi-owm-day-${data.id}" id="icon"></i>`;
+                break;
+            case('night'):
+                document.getElementById('iconCont').innerHTML = `<i class="wi wi-owm-night-${data.id}" id="icon"></i>`;
+                break;
+            default:
+                //do nothing
+        };
+    };
 };
 
 
