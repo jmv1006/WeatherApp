@@ -9,17 +9,18 @@
       <div id='title'>Weather App</div>
       <div id='searchContainer'>
         <input type="text" id='searchBar' placeholder="City...">
-        <button type="submit" id='searchBtn'><i class="fa-search" id='searchIcon'></i></button>
+        <button type="submit" id='searchBtn'>Search</i></button>
       </div>
     </div>
     <div id='mainContent'>
       <div id='leftSide'>
         <div id='upperContainer'>
           <div id='cityName'>Los Angeles</div>
-        <div id='iconAndtemp'>
-          <div id='iconCont'></div>
-          <div id='temp'>74</div>
-        </div>
+          <div id='iconAndtemp'>
+            <div id='iconCont'></div>
+            <div id='temp'>74</div>
+          </div>
+          <div id='main'></div>
         </div>
         <div id='highAndLow'>
           <div id='high'>High: 81</div>
@@ -28,9 +29,13 @@
         <div id='description'>Cloudy with a chance of rain</div>
       </div>
       <div id='rightSide'>
-        Right
+        <div class='descInfo' id='feelsLike'></div>
+        <div class='descInfo' id='humidity'></div>
+        <div class='descInfo' id='windSpeed'></div>
+        <div class='descInfo' id='pressure'></div>
       </div>
     </div>
+    <div id='footer'>2022 Jonathan Andrade Valenzuela</div>
     <script src="main.js"></script>
   </body>
 </html>
