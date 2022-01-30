@@ -39,6 +39,7 @@ function processData(weatherData) {
     let windSpeed = weatherData.wind.speed;
     let pressure = weatherData.main.pressure;
     let timeZone = weatherData.timezone;
+    let cityName = weatherData.name;
 
     let date = new Date();
     let localTime = date.getTime()
@@ -84,7 +85,7 @@ function processData(weatherData) {
             this.time = time;
         };
     };
-    let newWeather = new currentWeather(city, convertedtemp, main, description, owmId, convertedHigh, convertedLow, convertedFeels, humidity, convertedWindSpeed, pressure, currentHour);
+    let newWeather = new currentWeather(cityName, convertedtemp, main, description, owmId, convertedHigh, convertedLow, convertedFeels, humidity, convertedWindSpeed, pressure, currentHour);
     importedData(newWeather);
 }
 

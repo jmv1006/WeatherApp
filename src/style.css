@@ -12,23 +12,36 @@ body {
     margin: 0;
 }
 
-/* Smartphones (portrait) ----------- */
-@media only screen 
-and (max-width : 320px) {
-/* Styles */
+@media only screen and (max-device-width: 480px) {
+    .show-mobile {
+      display: flex;
+      flex-direction: column;
+      background-color: #1f2230;
+      align-items: center;
+      justify-content: center;
+    }
+    .hide-mobile {
+      display: none;
+    }
 }
 
-#header {
-    display: flex;
-    width: 100vw;
-    height: 18%;
-    padding-left: 1.5em;
-    padding-right: 1.5em;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #1f2230;
+@media only screen and (min-device-width: 481px) {
+    .show-mobile {
+      display: none;
+    }
+    .hide-mobile {
+      display: flex;
+      width: 100vw;
+        height: 18%;
+        padding-left: 1.5em;
+        padding-right: 1.5em;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #1f2230;
+    }
 }
+    
 
 #title {
     color: white;
@@ -169,7 +182,7 @@ and (max-width : 320px) {
 }
 
 #footer {
-    width: 100%;
+    width: 100vw;
     height: 5%;
     display: flex;
     align-items: center;
