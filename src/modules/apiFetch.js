@@ -21,7 +21,7 @@ function getUserCity() {
 
 
 async function fetchApi() {
-    const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=2ae9f6e3718dd2cebf6cbd59aede78eb`, {mode: 'cors'});
+    const response = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=2ae9f6e3718dd2cebf6cbd59aede78eb`, {mode: 'cors'});
     const weatherData = await response.json();
     processData(weatherData);
 }
