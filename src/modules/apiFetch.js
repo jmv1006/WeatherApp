@@ -7,9 +7,16 @@ document.getElementById('searchBtn').addEventListener('click', function() {
     getUserCity();
 });
 
+document.getElementById('searchBar').addEventListener('keypress', function (e) {
+    if (e.key === 'Enter') {
+      getUserCity();
+    }
+});
+
 function getUserCity() {
     city = document.getElementById('searchBar').value
     fetchApi();
+    document.getElementById('searchBar').value = '';
 }
 
 
@@ -58,6 +65,8 @@ function processData(weatherData) {
         convertedFeels = Math.round(convertedFeels1);
     };
 
+    let convertedWindSpeed1 = windSpeed * 2.24;
+    let convertedWindSpeed = Math.round(convertedWindSpeed1);
 
     class currentWeather {
         constructor(city, temp, main, description, id, high, low, feelsLike, humidity, windSpeed, pressure, time) {
@@ -75,7 +84,7 @@ function processData(weatherData) {
             this.time = time;
         };
     };
-    let newWeather = new currentWeather(city, convertedtemp, main, description, owmId, convertedHigh, convertedLow, convertedFeels, humidity, windSpeed, pressure, currentHour);
+    let newWeather = new currentWeather(city, convertedtemp, main, description, owmId, convertedHigh, convertedLow, convertedFeels, humidity, convertedWindSpeed, pressure, currentHour);
     importedData(newWeather);
 }
 

@@ -4,11 +4,17 @@
 
 function importedData(data) {
     console.log(data);
-    document.getElementById('cityName').innerText = data.city;
+
+    function capitalizeFirstLetter(string) {
+        return string[0].toUpperCase() + string.slice(1);
+    }
+
+    document.getElementById('cityName').innerText = capitalizeFirstLetter(data.city);
     document.getElementById('temp').innerText = `${data.temp}°F`;
+    document.getElementById('main').innerText = data.main;
     document.getElementById('high').innerText = `High: ${data.high}°F`;
     document.getElementById('low').innerText = `Low: ${data.low}°F`;
-    document.getElementById('description').innerText = data.description;
+    document.getElementById('description').innerText = capitalizeFirstLetter(data.description);
 
     if (data.time > 18 || data.time < 6) {
         displayIcon('night');
@@ -28,6 +34,14 @@ function importedData(data) {
                 //do nothing
         };
     };
+
+
+
+
+    document.getElementById('feelsLike').innerText = `Feels Like ${data.feelsLike}°F`;
+    document.getElementById('humidity').innerText = `Humidity: ${data.humidity}%`;
+    document.getElementById('windSpeed').innerText = `Wind Speed: ${data.windSpeed} MPH`;
+    document.getElementById('pressure').innerText = `Pressure: ${data.pressure} hPa`;
 };
 
 
