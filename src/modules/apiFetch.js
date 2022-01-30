@@ -1,7 +1,17 @@
 //http://api.openweathermap.org/data/2.5/forecast?id=524901&appid={API key}
 import {importedData} from './handleDom.js';
 
-let city = 'Cairo';
+let city = 'Los Angeles';
+
+document.getElementById('searchBtn').addEventListener('click', function() {
+    getUserCity();
+});
+
+function getUserCity() {
+    city = document.getElementById('searchBar').value
+    fetchApi();
+}
+
 
 async function fetchApi() {
     const response = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=2ae9f6e3718dd2cebf6cbd59aede78eb`, {mode: 'cors'});
@@ -21,6 +31,8 @@ function processData(weatherData) {
     let humidity = weatherData.main.humidity;
     let windSpeed = weatherData.wind.speed;
     let pressure = weatherData.main.pressure;
+    let timeZone = weatherData.timezone;
+
 
     let convertedtemp;
     let convertedHigh;
