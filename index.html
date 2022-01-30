@@ -6,12 +6,17 @@
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
   </head>
   <body>
-    <div id='header'>
+    <div class='hide-mobile' id='header'>
       <div id='title'>Weather App</div>
       <div id='searchContainer'>
         <input type="text" id='searchBar' placeholder="City...">
         <button type="submit" id='searchBtn'>Search</i></button>
       </div>
+    </div>
+    <div class='show-mobile'>
+      <div id='title'>Weather App</div>
+      <div id='searchBar' placeholder="City..."></div>
+      <button type="submit" id='searchBtn'>Search</i></button>
     </div>
     <div id='mainContent'>
       <div id='leftSide'>
