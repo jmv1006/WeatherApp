@@ -90,6 +90,7 @@ body {
     justify-content: flex-start;
     align-items: center;
     padding-top: 6%;
+    gap: 2em;
 }
 
 #leftSide {
